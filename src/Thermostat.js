@@ -5,15 +5,15 @@ function Thermostat() {
 };
 
 Thermostat.prototype.upTemp = function() {
-  if (this.temperature > this.maxTemp) {
-    throw ('Exceeded maximum temperature');
+  if (this.temperature >= this.maxTemp) {
+    throw ('Maximum temperature reached');
   }
   this.temperature += 1;
 };
 
 Thermostat.prototype.downTemp = function() {
-  if (this.temperature < 10) {
-    throw ('Minimum temperature is 10 C');
+  if (this.temperature <= 10) {
+    throw ('Minimum temperature is reached');
   };
   this.temperature -= 1;
 };
@@ -24,4 +24,7 @@ Thermostat.prototype.powerSaving = function(boolean) {
   } else {
     this.maxTemp = 32;
   }
+};
+Thermostat.prototype.resetTemp = function() {
+  this.temperature = 20
 };
