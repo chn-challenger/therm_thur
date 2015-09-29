@@ -20,3 +20,5 @@
 // Player.prototype.makeFavorite = function() {
 //   this.currentlyPlayingSong.persistFavoriteStatus(true);
 // };
+
+function Thermostat() {}
