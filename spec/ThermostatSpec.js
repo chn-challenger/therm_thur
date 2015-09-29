@@ -45,7 +45,7 @@ describe('Thermostat', function() {
 
     it('when power saving mode is off, maximum temperature is 32', function() {
       thermostat.powerSaving(false);
-      for (i = 20; i < 32; i++) {
+      for (i = thermostat.temperature; i < thermostat.maxTemp; i++) {
         thermostat.upTemp();
       }
       expect(function(){thermostat.upTemp()}).toThrow('Maximum temperature reached')
@@ -61,10 +61,26 @@ describe('Thermostat', function() {
       expect(thermostat.temperature).toEqual(20);
     });
   });
+  describe('it gives value based on temperature', function() {
+    it('Returns green if temperature is under 18', function() {
+      for (i = thermostat.temperature; i > 17; i--) {
+        thermostat.downTemp();
+      }
+      expect(thermostat.efficency()).toEqual('green');
+    });
 
+    it('Returns yellow if temperature is under 25', function() {
+      for (i = thermostat.temperature; i < 24; i++) {
+        thermostat.upTemp();
+      }
+      expect(thermostat.efficency()).toEqual('yellow');
+    });
 
-
-
-  // it('colours the display based on energy usage - < 18 is green, < 25 is yellow, otherwise red')
-  // });
+    it('Returns red if temperature is over 25', function() {
+      for (i = thermostat.temperature; i < 25; i++) {
+        thermostat.upTemp();
+      }
+      expect(thermostat.efficency()).toEqual('red');
+    });
+  });
 });
