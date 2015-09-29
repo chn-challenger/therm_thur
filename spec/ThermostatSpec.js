@@ -33,16 +33,28 @@ describe('Thermostat', function() {
       }
       expect(function(){thermostat.downTemp()}).toThrow("Minimum temperature is 10 C")
     });
+
+
+    it('when power saving mode is on, maximum temperature is 25', function() {
+      thermostat.powerSaving(true);
+      for (i = thermostat.temperature; i <= thermostat.maxTemp; i++) {
+        thermostat.upTemp();
+      }
+      expect(function(){thermostat.upTemp()}).toThrow('Exceeded maximum temperature')
+    });
+
+    it('when power saving mode is off, maximum temperature is 32', function() {
+      thermostat.powerSaving(false);
+      for (i = 20; i <= 32; i++) {
+        thermostat.upTemp();
+      }
+      expect(function(){thermostat.upTemp()}).toThrow('Exceeded maximum temperature')
+    });
+    it('power saving mode is on by default', function() {
+      expect(thermostat.maxTemp).toEqual(25);
+    });
   });
 
-  // it('when power saving mode is on, the maximum temperature is 25 degrees')
-  // });
-
-  // it('when power saving mode is off, the maximum temperature is 32 degrees')
-  // });
-
-  // it('power saving mode is on by default')
-  // });
 
   // it('you can reset the temperature to 20 by hitting the reset button')
   // });
