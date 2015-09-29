@@ -1,24 +1,15 @@
-// function Player() {
-// }
-// Player.prototype.play = function(song) {
-//   this.currentlyPlayingSong = song;
-//   this.isPlaying = true;
-// };
+function Thermostat() {
+  this.temperature = 20;
+  this.minTemp = 10;
+};
 
-// Player.prototype.pause = function() {
-//   this.isPlaying = false;
-// };
+Thermostat.prototype.upTemp = function() {
+  this.temperature += 1;
+};
 
-// Player.prototype.resume = function() {
-//   if (this.isPlaying) {
-//     throw new Error("song is already playing");
-//   }
-
-//   this.isPlaying = true;
-// };
-
-// Player.prototype.makeFavorite = function() {
-//   this.currentlyPlayingSong.persistFavoriteStatus(true);
-// };
-
-function Thermostat() {}
+Thermostat.prototype.downTemp = function() {
+  if (this.temperature < 10) {
+    throw ('Minimum temperature is 10 C');
+  };
+  this.temperature -= 1;
+};
