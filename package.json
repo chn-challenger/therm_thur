@@ -1,0 +1,23 @@
+{
+  "name": "thermostat",
+  "version": "1.0.0",
+  "description": "thermostat testing",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hvenables/thermostat_tueday.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hvenables/thermostat_tueday/issues"
+  },
+  "homepage": "https://github.com/hvenables/thermostat_tueday#readme"
+}

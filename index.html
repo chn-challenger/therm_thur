@@ -8,24 +8,25 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
   </head>
-  <body style="padding-left: 20px">
-    <h1>Thermostat</h1>
+  <body>
 
-    <h2>temperature: ...</h2>
+    <div class="container">
+      <h1>Thermostat</h1>
+      <div id="temp" class="temp"></div>
+      <button id='tempUp' class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-up"></span></button>
+      <button id='tempDown' class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-down"></span></button>
+      <button class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span>  reset</button>
 
-    <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-up"></span></a>
-    <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-down"></span></a>
-
-    <div class="checkbox-primary">
-      <label for='checkbox'>Powersaving Mode</label>
-        <input id="checkbox" type="checkbox" checked>
+      <div class="checkbox-primary">
+        <label for='checkbox'>Powersaving Mode</label>
+          <input id="myCheckbox" type="checkbox" checked="red">
+      </div>
     </div>
-
-    <script src="src/Thermostat.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
   </body>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="app/src/Thermostat.js"></script>
+    <script src="app/public/javascript/app.js"></script>
 </html>
