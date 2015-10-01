@@ -38,24 +38,18 @@ $(document).ready(function() {
     showTemp();
   });
 
-  // console.log(urlCity);
-
-  var urlBeg = 'http://api.openweathermap.org/data/2.5/weather?q={';
-  var pathArray = window.location.search;
-  var urlCity = pathArray.replace('?city=', '').replace('&Submit=Submit', '');
-  var urlEnd = '}';
-  var urlFull = urlBeg + urlCity + urlEnd;
+  var urlCity = window.location.search.replace('?city=', '').replace('&Submit=Submit', '') || 'london';
   var weathertemp;
   var weathername;
 
-  $.ajax(urlFull, {
+  $.ajax('http://api.openweathermap.org/data/2.5/weather?q=' + urlCity, {
     success: function(data) {
       // console.log(data);
       weathertemp = data.main.temp;
       weathername = data.name;
       console.log(weathertemp);
       console.log(weathername);
-      $('#weather').html(data.main.temp - 273.15 + data.name);
+      $('#weather').html(weathertemp - 273.15 + weathername);
     }
   });
 });
