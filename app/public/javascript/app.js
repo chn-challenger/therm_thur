@@ -1,5 +1,4 @@
 var thermostat = new Thermostat;
-// var efficency;
 
 var showTemp = function() {
   var colourefficent = thermostat.efficency();
@@ -8,7 +7,6 @@ var showTemp = function() {
     color: colourefficent,
   });
 };
-
 
 $(document).ready(function() {
   showTemp();
@@ -34,9 +32,30 @@ $(document).ready(function() {
       }
     }
   });
-});
 
-// window.document.getElementById('up').addEventListener('click', function() {
-//   thermostat.upTemp;
-//   thermostat.temperature;
-// });
+  $('#reset').click(function() {
+    thermostat.resetTemp();
+    showTemp();
+  });
+
+  // console.log(urlCity);
+
+  var urlBeg = 'http://api.openweathermap.org/data/2.5/weather?q={';
+  var pathArray = window.location.search;
+  var urlCity = pathArray.replace('?city=', '').replace('&Submit=Submit', '');
+  var urlEnd = '}';
+  var urlFull = urlBeg + urlCity + urlEnd;
+  var weathertemp;
+  var weathername;
+
+  $.ajax(urlFull, {
+    success: function(data) {
+      // console.log(data);
+      weathertemp = data.main.temp;
+      weathername = data.name;
+      console.log(weathertemp);
+      console.log(weathername);
+      $('#weather').html(data.main.temp - 273.15 + data.name);
+    }
+  });
+});

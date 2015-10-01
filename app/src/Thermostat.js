@@ -24,10 +24,11 @@ Thermostat.prototype.powerSaving = function(boolean) {
 
 Thermostat.prototype.resetTemp = function() {
   this.temperature = 20;
+  this.powerSaving(true);
 };
 
 Thermostat.prototype.efficency = function() {
-  if (this.temperature < 18) return ('green');
-  if (this.temperature < 25) return ('yellow');
-  return ('red');
+  if (this.temperature < 18) return ('#9ACD32');
+  if (this.temperature < 25) return ('#FFD700');
+  return ('#FF4500');
 };

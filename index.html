@@ -8,16 +8,22 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
+    <link rel='stylesheet' type='text/css' href='app/public/css/stylesheet.css'>
+
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
   </head>
   <body>
-
     <div class="container">
+      <div id='weather'></div>
+      <form input='text' method='get'>
+        <input type='text' name='city'>
+        <input type='submit' name='Submit'>
+      </form>
       <h1>Thermostat</h1>
-      <div id="temp" class="temp"></div>
+      <div id='tempstyle'><span id="temp" class="temp"></span>&deg;C</div>
       <button id='tempUp' class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-up"></span></button>
       <button id='tempDown' class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-down"></span></button>
-      <button class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span>  reset</button>
+      <button id='reset' class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span>  reset</button>
 
       <div class="checkbox-primary">
         <label for='checkbox'>Powersaving Mode</label>
@@ -25,7 +31,6 @@
       </div>
     </div>
   </body>
-
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="app/src/Thermostat.js"></script>
     <script src="app/public/javascript/app.js"></script>

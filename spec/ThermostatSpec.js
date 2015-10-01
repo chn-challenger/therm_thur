@@ -66,21 +66,21 @@ describe('Thermostat', function() {
       for (i = thermostat.temperature; i > 17; i--) {
         thermostat.downTemp();
       }
-      expect(thermostat.efficency()).toEqual('green');
+      expect(thermostat.efficency()).toEqual('#9ACD32');
     });
 
     it('Returns yellow if temperature is under 25', function() {
       for (i = thermostat.temperature; i < 24; i++) {
         thermostat.upTemp();
       }
-      expect(thermostat.efficency()).toEqual('yellow');
+      expect(thermostat.efficency()).toEqual('#FFD700');
     });
 
     it('Returns red if temperature is over 25', function() {
       for (i = thermostat.temperature; i < 25; i++) {
         thermostat.upTemp();
       }
-      expect(thermostat.efficency()).toEqual('red');
+      expect(thermostat.efficency()).toEqual('#FF4500');
     });
   });
 });

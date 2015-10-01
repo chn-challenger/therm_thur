@@ -9,9 +9,12 @@ app.use(express.static(root + '/app/views'));
 app.use('/app', express.static(path.join(root, 'app')));
 
 app.get('/', function(req, res) {
-  console.log(require('path'));
   res.sendFile(path.join(root + '/index.html'));
 });
+
+// app.post('/', function(req, res) {
+//
+// });
 
 var server = app.listen(3000, function() {
   var host = server.address().address;
