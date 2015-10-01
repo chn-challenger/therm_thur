@@ -12,6 +12,10 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(root + '/index.html'));
 });
 
+app.get('/example', function(req, res) {
+  res.sendFile(path.join(root + '/example.html'));
+});
+
 // app.post('/', function(req, res) {
 //
 // });
